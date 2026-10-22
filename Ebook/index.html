@@ -1,1 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vínculo Retido · Uma vida entre dois lugares</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080808;--card:#141210;--gold:#d4af37;--gold2:#a8842a;--tx:#ece6d8;--mut:#a39a86;--ln:#2e2819;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px));-webkit-text-size-adjust:100%}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:19px/1.75 "Open Sans",system-ui,sans-serif}
+h1,h2,h3,.serif{font-family:"Playfair Display",Georgia,serif;font-weight:700;line-height:1.25;color:var(--gold)}
+.bar{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(8,8,8,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--ln);padding:env(safe-area-inset-top,0px) 16px 0}
+.bar div{display:flex;align-items:center;justify-content:space-between;height:52px;max-width:720px;margin:auto}
+.bar b{font:600 13px "Open Sans",sans-serif;letter-spacing:.12em;color:var(--gold)}
+.bar button{background:none;border:1px solid var(--gold2);color:var(--gold);border-radius:20px;padding:8px 16px;font:600 14px inherit;font-family:inherit;min-height:40px}
+#pg{height:3px;background:var(--gold);width:0}
+main{max-width:720px;margin:0 auto;padding:76px 20px 60px}
+section{padding:36px 0;border-bottom:1px solid var(--ln)}
+.cover{text-align:center;min-height:88vh;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--gold2);outline:1px solid var(--gold2);outline-offset:6px;margin:12px 6px 0;padding:32px 16px}
+.cover h1{font-size:clamp(34px,9vw,56px);margin:0;letter-spacing:.02em}
+.cover .tag{color:var(--gold2);letter-spacing:.08em;margin:8px 0 36px}
+.cover em{font-family:"Playfair Display",serif;color:var(--gold);font-size:21px}
+.cover small{color:var(--mut);margin-top:36px;font-size:14px}
+.k{font:600 13px "Open Sans",sans-serif;letter-spacing:.18em;color:var(--gold2);text-transform:uppercase;margin:0 0 8px}
+h2{font-size:clamp(28px,7vw,40px);margin:0 0 20px}
+h3{font-size:22px;margin:0 0 8px}
+p{margin:0 0 1.1em}
+.q{font-family:"Playfair Display",serif;font-style:italic;font-size:22px;color:var(--gold);border-left:3px solid var(--gold);padding-left:16px;margin:1.4em 0}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:18px 20px;margin:14px 0}
+.card p{margin:0;font-size:17px;color:var(--mut)}
+.grid{display:grid;gap:12px}
+@media(min-width:700px){.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c2{grid-template-columns:1fr 1fr}body{font-size:20px}}
+.toc a{display:block;padding:14px 0;border-bottom:1px solid var(--ln);color:var(--tx);text-decoration:none;font-size:17px}
+.toc a span{color:var(--gold2);margin-right:10px}
+.ex{background:var(--card);border:1px solid var(--gold2);border-radius:18px;padding:22px 18px;margin-top:30px}
+.ex h3{font-size:24px}
+.qq{padding:18px 0;border-top:1px solid var(--ln)}
+.qq p{font-size:17px;line-height:1.55}
+.qq .r{display:flex;align-items:center;gap:14px}
+.qq output{min-width:56px;text-align:center;font:700 20px "Playfair Display",serif;color:var(--mut);border:1px solid var(--ln);border-radius:10px;padding:6px 0}
+.qq.on output{color:#080808;background:var(--gold);border-color:var(--gold)}
+input[type=range]{flex:1;height:44px;accent-color:var(--gold);background:none;margin:0}
+.sub{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--gold2);padding-top:14px;font-weight:600}
+.sub b{font:700 28px "Playfair Display",serif;color:var(--gold)}
+.note{font-size:16px;color:var(--mut);margin:12px 0 0}
+.box{border:1px solid var(--gold2);border-radius:18px;padding:22px 18px;background:var(--card)}
+.row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--ln);font-size:17px}
+.big{text-align:center;font:700 56px "Playfair Display",serif;color:var(--gold);margin:14px 0 0}
+.big small{font-size:22px;color:var(--mut)}
+.btn{display:block;text-align:center;background:var(--gold);color:#080808;font-weight:600;text-decoration:none;border-radius:14px;padding:18px;margin:18px 0 0;font-size:18px}
+.btn.o{background:none;color:var(--gold);border:1px solid var(--gold2)}
+.bands div{padding:12px 0;border-bottom:1px solid var(--ln);font-size:16px}
+.bands .hit{color:var(--gold);font-weight:600}
+footer{color:var(--mut);font-size:14px;text-align:center;padding-top:28px}
+</style>
+</head>
+<body>
+<div class="bar"><div><b>VÍNCULO RETIDO</b><button onclick="document.getElementById('toc').scrollIntoView()">Sumário</button></div><div id="pg"></div></div>
+<main>
 
+<div class="cover">
+<h1>VÍNCULO ∞ RETIDO</h1>
+<div class="tag">Uma vida entre dois lugares.</div>
+<em>Um mapa de reflexão para quem construiu uma vida fora</em>
+<small>E-BOOK<br>Magdiel Negrão · Mentalidade &amp; Estratégia</small>
+</div>
+
+<section>
+<h2>Você construiu uma vida fora</h2>
+<p class="q">Então, por que ainda sente que uma parte sua ficou no Brasil?</p>
+<p>Uma nova forma de entender a saudade, a culpa e a sensação de viver entre dois lugares, sem precisar escolher entre a vida que você construiu e as pessoas que continuam fazendo parte dela.</p>
+</section>
+
+<section id="toc" class="toc">
+<p class="k">Sumário</p><h2>O que você vai encontrar</h2>
+<a href="#b1"><span>1</span>Bem por fora, mas não por dentro?</a>
+<a href="#b2"><span>2</span>Talvez não seja apenas cansaço</a>
+<a href="#b3"><span>3</span>O preço de deixar tudo como está</a>
+<a href="#b4"><span>4</span>A virada: o Vínculo Retido</a>
+<a href="#b5"><span>5</span>O caminho</a>
+<a href="#b6"><span>6</span>Convite: agora falta olhar para o seu caso</a>
+<a href="#diag"><span>✦</span>Autodiagnóstico · O mapa do seu vínculo</a>
+<a href="#res"><span>✦</span>Uma primeira leitura do seu resultado</a>
+<a href="#next"><span>✦</span>Sua análise individual gratuita</a>
+</section>
+
+<section id="b1">
+<p class="k">Bloco 1</p><h2>Talvez você esteja bem por fora. Mas não tão bem por dentro?</h2>
+<p>Você trabalha. Paga suas contas. Construiu uma vida fora do Brasil. Por fora, parece que deu certo.</p>
+<p>Mas existe um momento, geralmente quando o dia termina, em que sua cabeça volta para lá.</p>
+<p>Talvez aconteça dentro do carro, depois do trabalho. Você estaciona, fica alguns minutos em silêncio e começa a pensar na família. Talvez aconteça quando chega uma mensagem do Brasil. Você fica feliz em ver o nome de alguém conhecido na tela. Depois da conversa, vem a saudade.</p>
+<p>Talvez aconteça quando você vê uma foto. Um aniversário. Uma notícia da família. Um áudio. Ou quando pensa nos seus pais envelhecendo e percebe que está longe.</p>
+<p>E existe uma pergunta que talvez você não diga para ninguém:</p>
+<p class="q">“Será que estou perdendo coisas importantes enquanto construo minha vida aqui?”</p>
+<p>Você pode gostar da vida que construiu. Pode reconhecer que morar fora trouxe oportunidades. Pode saber que fez a escolha certa naquele momento. Ainda assim, alguma coisa incomoda. Você trabalha, mas sente falta de energia. Tem momentos de descanso, mas continua com a cabeça ocupada. Pega o celular à noite e passa mais tempo do que gostaria olhando mensagens, vídeos ou notícias do Brasil. Às vezes, sente que está presente fisicamente onde mora, mas uma parte da sua atenção continua em outro lugar.</p>
+<p>E talvez exista algo ainda mais difícil de explicar. Você sente saudade do Brasil, mas também sabe que não quer simplesmente voltar. Sente falta de pessoas. De lugares. De costumes. De uma versão sua que existia lá. Ao mesmo tempo, existe uma vida acontecendo aqui. E você ficou no meio dessas duas coisas.</p>
+<p>Talvez tenha aprendido a chamar tudo isso de normal. Afinal, você escolheu morar fora. Precisa trabalhar. Precisa seguir. Precisa cuidar da sua vida. Então você continua.</p>
+<p class="q">Só que continuar não significa necessariamente estar inteiro onde está.</p>
+<div class="ex" data-i="0" data-t="Exercício 1" data-h="O que você aprendeu a chamar de normal?"></div>
+</section>
+
+<section id="b2">
+<p class="k">Bloco 2</p><h2>Talvez não seja apenas cansaço</h2>
+<p>Você pode olhar para sua rotina e encontrar uma explicação simples. “Estou cansado porque trabalho muito.” E talvez isso seja verdade. Mas observe o que acontece quando você finalmente tem tempo para descansar.</p>
+<p class="q">Seu corpo para. Sua cabeça continua.</p>
+<p>Você pega o celular. Responde alguém. Olha uma mensagem do Brasil. Vê uma foto. Entra em uma rede social. Quando percebe, passou mais uma hora. E no dia seguinte você acorda cansado outra vez.</p>
+<p>Existe outro detalhe. As conversas com a família podem ser boas e difíceis ao mesmo tempo. Você escuta a voz de alguém que ama e sente alegria. Depois que a conversa termina, sente saudade. Pensa nos seus pais. Pensa no tempo passando. Pensa em tudo que acontece enquanto você está longe.</p>
+<p>Pode aparecer preocupação. Pode aparecer culpa. Pode aparecer aquela sensação de que deveria estar lá. E então você volta para sua rotina. Trabalho. Casa. Contas. Responsabilidades. Você segue funcionando. Mas talvez exista uma parte da sua vida que ainda não encontrou um lugar tranquilo dentro dessa nova rotina.</p>
+<div class="card"><h3>Você está aqui.</h3><p>Mas pensa lá.</p></div>
+<div class="card"><h3>Ama as pessoas que ficaram.</h3><p>Mas precisa viver onde está.</p></div>
+<div class="card"><h3>Construiu uma nova vida.</h3><p>Mas sente falta de quem era antes dela.</p></div>
+<p style="margin-top:1.2em">E talvez seja justamente essa divisão que você ainda não conseguiu nomear. Isso não significa que você não se adaptou. Não significa que escolheu errado. Não significa que ama menos a vida que construiu. Significa apenas que existe mais coisa acontecendo dentro de você do que aquela palavra simples, “cansaço”, consegue explicar.</p>
+<div class="ex" data-i="1" data-t="Exercício 2" data-h="O que existe por trás do que você chama de “cansaço”?" data-n="Não tente tirar uma conclusão definitiva ainda. Apenas registre. No final, vamos olhar para o conjunto."></div>
+</section>
+
+<section id="b3">
+<p class="k">Bloco 3</p><h2>O preço de deixar tudo como está</h2>
+<p>Existe um custo que não aparece no extrato bancário. É o custo de passar meses ou anos apenas administrando a própria vida. Você trabalha. Resolve problemas. Cumpre compromissos. Ajuda quem precisa. Mantém as coisas funcionando. E vai deixando algumas partes da sua vida para depois.</p>
+<p class="q">“Quando eu tiver mais tempo.” “Quando eu estiver menos cansado.” “Quando as coisas melhorarem.” “Quando eu conseguir organizar minha vida.”</p>
+<p>O problema é que esse depois pode durar muito tempo. Talvez você tenha percebido isso em coisas pequenas. Um encontro que deixou de marcar. Uma viagem que ficou para depois. Um projeto que perdeu força. Um momento com alguém que ama e no qual estava presente apenas pela metade. Ou simplesmente aquela sensação de chegar ao fim da semana e perceber que fez muita coisa, mas quase não viveu nada.</p>
+<p class="q">Quanto da sua vida atual você está apenas administrando, quando poderia estar vivendo?</p>
+<p>Você não precisa estar em crise para perceber isso. Às vezes, o incômodo aparece justamente porque a vida está funcionando. As contas estão sendo pagas. O trabalho está andando. A rotina continua. Só que você sabe que poderia estar vivendo esses anos de outra maneira. Com mais presença. Com mais tranquilidade. Com mais espaço para aproveitar a vida que você mesmo construiu.</p>
+<div class="ex" data-i="2" data-t="Exercício 3" data-h="A conta que não aparece no extrato" data-n="Guarde esse resultado junto com os anteriores. Você já tem três partes do seu mapa. Ainda não tente interpretar tudo."></div>
+</section>
+
+<section id="b4">
+<p class="k">Bloco 4 · A virada</p><h2>O Vínculo Retido</h2>
+<p>Até aqui, talvez você tenha tentado entender tudo por partes. Cansaço. Saudade. Preocupação. Culpa. Dificuldade para descansar. Sensação de não pertencer completamente. Mas existe outra forma de olhar para esse conjunto.</p>
+<p>Imagine que você mudou de país, construiu uma nova rotina e continuou seguindo sua vida. Só que algumas partes importantes da sua história continuaram emocionalmente ligadas ao que ficou no Brasil. Sua família. Pessoas que você ama. Lugares. Memórias. Responsabilidades. Uma versão sua. Planos que ficaram pelo caminho. A sensação de que ainda existe alguma coisa que precisa cuidar lá.</p>
+<p>É isso que chamamos aqui de <b style="color:var(--gold)">Vínculo Retido</b>. Não é um diagnóstico. Não é uma doença. Não significa que existe algo errado com você. É uma forma de nomear um padrão que pode ajudar a compreender uma experiência difícil de explicar.</p>
+<p>Seu corpo mudou de país. Mas uma parte da sua vida emocional continuou ligada ao que ficou para trás. E existe uma razão para isso. Você precisou continuar conectado. Telefonar. Mandar mensagem. Acompanhar a família. Participar de aniversários à distância. Saber como seus pais estão. Manter contato com quem ficou. Lembrar de onde veio. Essas conexões ajudaram você a atravessar a distância. Você aprendeu a ir embora sem abandonar completamente aquilo que ama.</p>
+<p>Só que talvez ninguém tenha ensinado a outra parte. Como continuar amando sem precisar permanecer emocionalmente preso ao lugar que ficou para trás. Como construir uma vida nova sem sentir que está traindo a antiga. Como pertencer ao lugar onde está sem deixar de pertencer à sua história.</p>
+<p class="q">Você ficou muito bom em continuar conectado. Muito bom em lembrar. Muito bom em se preocupar. Muito bom em manter tudo funcionando. Muito bom em seguir em frente sem deixar de olhar para trás.</p>
+<p>E talvez a mesma força que ajudou você a construir a vida atual esteja ocupando espaço demais na sua presença.</p>
+<p>Pense em uma mala. No começo, você percebe que está carregando. Depois de muitos anos, pode ficar tão acostumado com o peso que deixa de perceber que continua carregando. O objetivo não é jogar a mala fora. É descobrir o que precisa continuar com você e qual é o lugar de cada coisa.</p>
+<div class="grid c3">
+<div class="card"><h3>Amar ≠ Estar preso</h3><p>Existe uma diferença entre amar o que ficou no Brasil e precisar emocionalmente estar lá para se sentir inteiro.</p></div>
+<div class="card"><h3>Saudade ≠ Ausência</h3><p>Existe diferença entre sentir saudade e deixar de viver o momento atual toda vez que pensa na família.</p></div>
+<div class="card"><h3>Raízes ≠ Escolha forçada</h3><p>Existe diferença entre manter suas raízes e sentir que precisa escolher entre o Brasil e a vida que construiu fora.</p></div>
+</div>
+<p class="q">Talvez o ponto não seja eliminar a saudade. Talvez seja descobrir como continuar conectado sem deixar que essa conexão ocupe o lugar da vida que está acontecendo agora.</p>
+<div class="ex" data-i="3" data-t="Exercício 4" data-h="Onde o seu vínculo continua presente?" data-n="Esse resultado mostra apenas uma parte do seu mapa. Ele não diz, sozinho, o que isso significa para você. Essa resposta depende do conjunto das suas respostas e da sua história."></div>
+</section>
+
+<section id="b5">
+<p class="k">Bloco 5 · O caminho</p><h2>Você não precisa escolher entre suas raízes e sua vida atual</h2>
+<p>Se o problema não é simplesmente sentir saudade, a saída também não é simplesmente parar de sentir. Você não precisa esquecer o Brasil. Não precisa cortar vínculos. Não precisa fingir que não sente falta. E não precisa tomar uma decisão sobre voltar ou ficar apenas para acabar com esse conflito.</p>
+<p>O caminho começa em outro lugar.</p>
+<div class="card"><p class="k">1</p><h3>Desacoplar a culpa</h3><p>Estar longe não significa abandonar. Construir uma vida fora não apaga tudo que você fez por quem ficou. Você pode amar sua família e continuar vivendo. Pode prosperar sem transformar cada conquista em uma dívida. Pode estar longe sem passar o tempo inteiro se cobrando por isso. O que muda aqui é a relação entre distância e culpa.</p></div>
+<div class="card"><p class="k">2</p><h3>Canalizar a presença</h3><p>Você pode manter vínculos com as pessoas que ama sem deixar que toda a sua atenção fique presa ao que acontece no Brasil. A questão passa a ser: como continuar conectado e, ao mesmo tempo, estar realmente presente onde sua vida acontece hoje? O objetivo não é escolher um país. É conseguir estar onde você está.</p></div>
+<div class="card"><p class="k">3</p><h3>Reorganizar o que ficou para trás</h3><p>Algumas partes da nossa história precisam encontrar um novo lugar. Não para serem apagadas. Para deixarem de exigir que a gente volte constantemente ao passado para se sentir inteiro. Sua história continua sendo sua. As pessoas continuam sendo importantes. As lembranças continuam existindo. Mas o lugar que tudo isso ocupa na sua vida atual pode mudar.</p></div>
+<p style="margin-top:1.2em">Esse é o caminho. O mapa é simples. O caminho não é igual para todo mundo.</p>
+<p>Duas pessoas podem sentir a mesma saudade e estar vivendo conflitos completamente diferentes. Uma pode estar presa à culpa. Outra pode estar preocupada com os pais. Outra pode sentir falta de quem era antes de mudar de país. Outra pode estar vivendo uma dificuldade de pertencimento.</p>
+<p>Por isso, entender o mapa é diferente de entender onde você está dentro dele. É exatamente por isso que seus cinco resultados importam.</p>
+<div class="ex" data-i="4" data-t="Exercício 5" data-h="Para onde você quer levar a sua vida?"></div>
+<p style="margin-top:1.4em">Você chegou ao final dos cinco exercícios. Agora existe um retrato inicial. Mas ainda falta uma coisa importante: entender o que esse retrato significa na sua história. Você consegue reconhecer o que sente. Consegue perceber alguns padrões. Mas ainda não consegue interpretar completamente o que tudo isso significa para você. E é justamente aí que entra a análise individual.</p>
+</section>
+
+<section id="b6">
+<p class="k">Bloco 6 · Convite</p><h2>Agora falta olhar para o seu caso</h2>
+<p>Você começou este e-book talvez pensando que o que sentia era apenas cansaço. Talvez fosse saudade. Talvez excesso de trabalho. Talvez dificuldade para se adaptar à vida fora do Brasil. Ao longo da leitura, você percebeu que pode existir uma ligação entre essas experiências.</p>
+<p>Conheceu o Vínculo Retido, uma forma de compreender o que acontece quando você constrói uma vida em outro país, mas continua emocionalmente ligado a partes importantes da sua história que ficaram no Brasil. E fez cinco exercícios para perceber como isso aparece na sua própria vida.</p>
+<p>Agora você tem cinco resultados nas mãos. Mas números soltos não contam sua história. Uma mesma pontuação pode ter significados diferentes para pessoas diferentes. O que importa é olhar para os cinco resultados juntos e entender o que eles revelam sobre o seu caso. E é exatamente para isso que existe sua análise individual.</p>
+<p>Ao comprar este e-book, você já recebeu uma <b style="color:var(--gold)">consultoria individual e gratuita</b>. Nesse encontro, você vai apresentar seus cinco exercícios e olhar para os resultados junto com o terapeuta, para entender o que esse conjunto revela sobre sua experiência.</p>
+<p>Você não precisa chegar com tudo explicado. Não precisa saber interpretar suas respostas. Você já fez essa parte. Agora, basta levar seu mapa.</p>
+<p class="q">Você já ganhou essa conversa. Aproveite.</p>
+<a class="btn" href="https://wa.me/5544999538127" target="_blank" rel="noopener">Agendar consultoria gratuita no WhatsApp</a>
+<p class="note">+55 44 9 9953-8127 · Leve seus cinco resultados. A análise começa olhando para aquilo que seu próprio mapa está mostrando.</p>
+</section>
+
+<section id="diag">
+<p class="k">Autodiagnóstico</p><h2>O mapa do seu vínculo</h2>
+<p>Um retrato inicial de como sua vida no exterior está se relacionando com aquilo que ficou no Brasil.</p>
+<p>Não existe resposta certa ou errada. A ideia não é descobrir se você está “bem” ou “mal”. É perceber quanto essas questões estão ocupando espaço na sua vida hoje. Suas respostas dos exercícios aparecem aqui automaticamente.</p>
+<div class="box" id="map"></div>
+</section>
+
+<section id="res">
+<p class="k">Seu resultado</p><h2>Uma primeira leitura</h2>
+<div class="box"><div class="big" id="tot">— <small>/ 150</small></div><p class="note" id="stat" style="text-align:center">Responda os exercícios para ver sua leitura.</p></div>
+<div class="bands card">
+<div data-r="0">0 a 40 · As questões avaliadas parecem ocupar um espaço menor na sua experiência atual.</div>
+<div data-r="1">41 a 80 · Existe um conjunto de questões que merece ser observado com mais atenção.</div>
+<div data-r="2">81 a 120 · Essas questões parecem ocupar um espaço significativo na sua experiência atual.</div>
+<div data-r="3" style="border:0">121 a 150 · O conjunto de respostas indica uma presença muito forte desses temas na sua vida hoje.</div>
+</div>
+<div class="card" style="border-color:var(--gold2)"><h3>Importante</h3><p>Esta pontuação não é um diagnóstico e não é um veredito sobre você. Ela é apenas um ponto de partida. Uma pontuação alta não significa que existe algo errado com você. Uma pontuação baixa também não conta toda a sua história. Seu número não consegue dizer sozinho onde seu vínculo aparece com mais força, o que mantém esse padrão ou o que fazer a respeito. Isso depende da sua história. E é justamente essa parte que a análise individual ajuda a enxergar.</p></div>
+<h3 style="margin-top:28px">O que o seu número quer dizer no seu caso?</h3>
+<p>Você passou por cinco etapas. Reconheceu o que sente. Percebeu camadas que talvez parecessem separadas. Começou a enxergar o custo de continuar exatamente como está. Conheceu a ideia do Vínculo Retido. E identificou o tipo de vida que gostaria de construir daqui para frente.</p>
+<p>Agora você tem um número. Mas talvez tenha ficado uma pergunta: “O que esse número quer dizer no meu caso?” Essa resposta não está apenas na pontuação. Está na sua história.</p>
+</section>
+
+<section id="next">
+<p class="k">Seu próximo passo</p><h2>Sua análise individual gratuita</h2>
+<p>Ao comprar este e-book, você já ganhou uma análise individual gratuita. Leve este autodiagnóstico preenchido para a conversa. Nela, você poderá olhar para suas respostas e entender melhor o que elas revelam sobre seu caso específico.</p>
+<p>Você não precisa chegar com tudo explicado. Basta levar seu mapa.</p>
+<div class="grid c3">
+<div class="card"><h3>Leve seus 5 resultados</h3><p>Cada subtotal conta uma parte da sua história.</p></div>
+<div class="card"><h3>Sem precisar explicar tudo</h3><p>Você já fez a parte mais importante. Agora é só aparecer.</p></div>
+<div class="card"><h3>Análise do seu caso</h3><p>O terapeuta vai olhar para o conjunto e ajudar a interpretar o que significa para você.</p></div>
+</div>
+<a class="btn" id="wa" href="https://wa.me/5544999538127" target="_blank" rel="noopener">Agendar minha consultoria gratuita pelo WhatsApp</a>
+<a class="btn o" href="#" id="rs">Recomeçar respostas</a>
+<footer>Magdiel Negrão · Mentalidade &amp; Estratégia · Todos os direitos reservados<br><br>Este material é educativo e reflexivo. Não oferece diagnóstico, não substitui uma avaliação individual e não promete resultados terapêuticos específicos.</footer>
+</section>
+</main>
+
+<script>
+var Q=[
+["Em algum momento, quanto você sente vontade de largar tudo e voltar para o Brasil?","Quanto sua cabeça volta para o Brasil enquanto você tenta viver o seu dia no país onde mora hoje?","Quanto você sente que sua vida está funcionando por fora, mas você não está se sentindo tão bem por dentro?"],
+["Quanto sua cabeça volta para o Brasil quando você finalmente tem tempo para descansar?","Quanto uma conversa com sua família traz, junto com carinho e alegria, saudade, preocupação ou culpa?","Quanto você sente que não pertence completamente a nenhum dos dois lugares?"],
+["Quanto da sua vida hoje está concentrado em resolver, cumprir e aguentar, em vez de viver e aproveitar?","Quanto você sente que está adiando coisas importantes esperando ter mais tempo, energia, dinheiro ou tranquilidade?","Quanto você sente que os próximos anos poderiam ser diferentes se conseguisse viver onde está hoje com mais presença, tranquilidade e liberdade emocional?"],
+["Quanto você sente que uma parte importante de você ainda está emocionalmente ligada à vida que deixou no Brasil?","Quanto a preocupação com pessoas, acontecimentos ou responsabilidades no Brasil interfere na sua capacidade de aproveitar a vida que construiu onde está hoje?","Quanto você sente que precisa escolher entre pertencer à vida que construiu fora e continuar sendo fiel à sua história e às pessoas que ficaram no Brasil?"],
+["Quanto você quer voltar a sentir que está vivendo sua vida, e não apenas resolvendo o que precisa ser resolvido?","Quanto seria importante para você manter sua conexão com o Brasil e, ao mesmo tempo, se sentir verdadeiramente presente na vida que construiu fora?","Quanto você gostaria de conseguir olhar para sua história sem sentir que precisa escolher entre quem você foi, quem ama e a pessoa que está se tornando?"]];
+var NM=["O que você tem sentido","O que existe por trás do “cansaço”","A conta invisível","O Vínculo Retido","Para onde você quer levar sua vida"];
+var A=new Array(15).fill(null),K="vr_ans";
+try{var s=JSON.parse(localStorage.getItem(K)||"null");if(s&&s.length==15)A=s}catch(e){}
+function sv(){try{localStorage.setItem(K,JSON.stringify(A))}catch(e){}}
+function sub(i){var t=0,n=0;for(var j=0;j<3;j++){var v=A[i*3+j];if(v!==null){t+=v;n++}}return[t,n]}
+document.querySelectorAll(".ex").forEach(function(el){
+var i=+el.dataset.i,h='<p class="k">'+el.dataset.t+'</p><h3>'+el.dataset.h+'</h3><p class="note" style="margin:0 0 6px">Deslize e responda de 0 a 10.</p>';
+Q[i].forEach(function(q,j){var n=i*3+j,v=A[n];h+='<div class="qq'+(v!==null?' on':'')+'"><p><b style="color:var(--gold)">Pergunta '+(j+1)+'</b><br>'+q+'</p><div class="r"><input type="range" min="0" max="10" step="1" value="'+(v===null?5:v)+'" data-n="'+n+'" aria-label="Pergunta '+(j+1)+'"><output>'+(v===null?'—':v)+'</output></div></div>'});
+h+='<div class="sub"><span>Resultado</span><span><b id="s'+i+'">0</b> / 30</span></div>';
+if(el.dataset.n)h+='<p class="note">'+el.dataset.n+'</p>';
+el.innerHTML=h});
+function upd(){
+var tot=0,ans=0,m="";
+for(var i=0;i<5;i++){var r=sub(i);tot+=r[0];ans+=r[1];var e=document.getElementById("s"+i);if(e)e.textContent=r[0];
+m+='<div class="row"><span>'+(i+1)+'. '+NM[i]+'</span><b class="serif" style="color:var(--gold)">'+r[0]+' / 30</b></div>'}
+document.getElementById("map").innerHTML=m+'<div class="row" style="border:0"><b>Pontuação total</b><b class="serif" style="color:var(--gold)">'+tot+' / 150</b></div>';
+document.getElementById("tot").innerHTML=(ans?tot:"—")+' <small>/ 150</small>';
+document.getElementById("stat").textContent=ans==15?"Todas as 15 perguntas respondidas.":ans?"Faltam "+(15-ans)+" respostas para completar.":"Responda os exercícios para ver sua leitura.";
+var b=tot<=40?0:tot<=80?1:tot<=120?2:3;
+document.querySelectorAll("[data-r]").forEach(function(d){d.className=ans==15&&+d.dataset.r==b?"hit":""});
+var txt="Olá! Fiz o autodiagnóstico Vínculo Retido. Meus resultados: "+[0,1,2,3,4].map(function(i){return (i+1)+") "+sub(i)[0]+"/30"}).join(", ")+". Total: "+tot+"/150. Quero agendar minha consultoria gratuita.";
+document.getElementById("wa").href=ans==15?"https://wa.me/5544999538127?text="+encodeURIComponent(txt):"https://wa.me/5544999538127"}
+document.addEventListener("input",function(e){var t=e.target;if(t.type!="range")return;var n=+t.dataset.n;A[n]=+t.value;var q=t.closest(".qq");q.classList.add("on");q.querySelector("output").textContent=t.value;sv();upd()});
+document.getElementById("rs").onclick=function(e){e.preventDefault();if(confirm("Apagar todas as respostas?")){try{localStorage.removeItem(K)}catch(x){}location.reload()}};
+addEventListener("scroll",function(){var h=document.documentElement;document.getElementById("pg").style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+"%"},{passive:true});
+upd();
+</script>
+</body>
+</html>
